@@ -62,7 +62,8 @@ function wpGetOptions (context) {
 }
 
 module.exports = function (content) {
-  this.cacheable();
+  if(this.cacheable)
+    this.cacheable();
 
   var webpackOptions = this.options || {}; // only makes sense in Webpack 1.x, or when LoaderOptionsPlugin is used
   var options = wpGetOptions(this) || {};
